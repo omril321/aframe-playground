@@ -1,6 +1,8 @@
-const hi = 'h123i';
-console.log(`${hi}`);
+import "aframe";
 
-import html from './index.html';
-
-console.log('HTML: ', html);
+function htmlToElement(html) {
+    const template = document.createElement('template');
+    html = html.trim(); // Never return a text node of whitespace as the result
+    template.innerHTML = html;
+    return template.content.firstChild;
+}
