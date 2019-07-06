@@ -1,8 +1,13 @@
 import "aframe";
 
-function htmlToElement(html) {
-    const template = document.createElement('template');
-    html = html.trim(); // Never return a text node of whitespace as the result
-    template.innerHTML = html;
-    return template.content.firstChild;
-}
+AFRAME.registerComponent('initial-speed', {
+    schema: {type: "vec3"},
+    tick: function () {
+        const currentPosition = this.el.getAttribute('position');
+        currentPosition.x += this.data.x;
+        currentPosition.y += this.data.y;
+        currentPosition.z += this.data.z;
+
+        this.el.setAttribute('position', currentPosition);
+    }
+})

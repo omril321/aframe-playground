@@ -45,7 +45,8 @@ module.exports = {
         historyApiFallback: true,
         host: 'localhost',
         port: 3456,
-        contentBase: "dist",
+        contentBase: "src",
+        watchContentBase: true,
         hot: true,
         watchOptions: {
             aggregateTimeout: 300,
